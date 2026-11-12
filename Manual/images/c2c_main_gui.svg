@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="690" viewBox="0 0 980 690">
+  <defs>
+    <filter id="winShadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.18" />
+    </filter>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="toolGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#EEF2F6" />
+    </linearGradient>
+    <style>
+      .ui { font-family: 'Yu Gothic UI', 'Meiryo UI', 'Segoe UI', sans-serif; }
+      .mono { font-family: 'Consolas', 'BIZ UDGothic', 'MS Gothic', monospace; }
+      .badge-circle { fill: #E8590C; stroke: #FFFFFF; stroke-width: 2; }
+      .badge-num { font-family: 'Segoe UI', 'Yu Gothic UI', sans-serif; font-size: 13px; font-weight: 700; fill: #FFFFFF; text-anchor: middle; dominant-baseline: central; }
+      .callout-box { fill: #FFFBEB; stroke: #F59E0B; stroke-width: 1.4; rx: 6; }
+      .callout-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 11.5px; font-weight: 700; fill: #92400E; }
+      .grid-hdr { fill: #F1F5F9; stroke: #CBD5E1; stroke-width: 1; }
+      .grid-hdr-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 11.5px; font-weight: 700; fill: #1E293B; }
+      .grid-cell-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 11.5px; fill: #0F172A; }
+      .btn-box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1; rx: 4; }
+      .btn-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 12px; font-weight: 600; fill: #1E293B; }
+    </style>
+  </defs>
+
+  <!-- 背景キャンバス -->
+  <rect x="0" y="0" width="980" height="690" fill="#F8FAFC" rx="10" />
+
+  <!-- メインウィンドウ外枠 -->
+  <g filter="url(#winShadow)">
+    <rect x="24" y="42" width="932" height="602" rx="8" fill="#F3F4F6" stroke="#94A3B8" stroke-width="1.5" />
+    <!-- タイトルバー -->
+    <path d="M 24 50 Q 24 42 32 42 L 948 42 Q 956 42 956 50 L 956 76 L 24 76 Z" fill="url(#titleGrad)" />
+  </g>
+
+  <!-- アプリアイコン & タイトル -->
+  <rect x="36" y="50" width="18" height="18" rx="4" fill="#38BDF8" stroke="#E0F2FE" stroke-width="1" />
+  <path d="M 40 59 L 50 59 M 47 55 L 51 59 L 47 63" stroke="#0F172A" stroke-width="1.8" fill="none" stroke-linecap="round" />
+  <text x="62" y="64" class="ui" font-size="13" font-weight="700" fill="#FFFFFF">Monaca c2c - 仮想ヌルモデム・シリアル中継ブローカー</text>
+
+  <!-- ウィンドウ右上制御ボタン -->
+  <g stroke="#E2E8F0" stroke-width="1.4" fill="none">
+    <line x1="868" y1="60" x2="880" y2="60" />
+    <rect x="900" y="54" width="11" height="11" />
+    <line x1="931" y1="54" x2="942" y2="65" />
+    <line x1="942" y1="54" x2="931" y2="65" />
+  </g>
+
+  <!-- ① 上部ツールバー (TspMain) -->
+  <rect x="25" y="76" width="930" height="38" fill="url(#toolGrad)" stroke="#CBD5E1" stroke-width="1" />
+
+  <!-- ボタン: 中継停止 (稼働中トグル) -->
+  <rect x="34" y="81" width="94" height="28" rx="4" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.2" />
+  <rect x="44" y="90" width="10" height="10" rx="1.5" fill="#DC2626" />
+  <text x="60" y="99" class="ui" font-size="12" font-weight="700" fill="#B91C1C">中継停止</text>
+
+  <!-- セパレータ -->
+  <line x1="137" y1="83" x2="137" y2="107" stroke="#CBD5E1" stroke-width="1.2" />
+
+  <!-- ボタン: ペア追加 -->
+  <rect x="146" y="81" width="88" height="28" class="btn-box" />
+  <path d="M 160 90 L 160 100 M 155 95 L 165 95" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round" />
+  <text x="171" y="99" class="btn-txt">ペア追加</text>
+
+  <!-- ボタン: ペア編集 -->
+  <rect x="240" y="81" width="88" height="28" class="btn-box" />
+  <path d="M 251 99 L 259 91 L 262 94 L 254 102 Z" fill="#2563EB" />
+  <text x="267" y="99" class="btn-txt">ペア編集</text>
+
+  <!-- ボタン: ペア削除 -->
+  <rect x="334" y="81" width="88" height="28" class="btn-box" />
+  <path d="M 346 91 L 354 99 M 354 91 L 346 99" stroke="#DC2626" stroke-width="2" stroke-linecap="round" />
+  <text x="360" y="99" class="btn-txt">ペア削除</text>
+
+  <!-- セパレータ -->
+  <line x1="431" y1="83" x2="431" y2="107" stroke="#CBD5E1" stroke-width="1.2" />
+
+  <!-- ボタン: モニター消去 -->
+  <rect x="440" y="81" width="106" height="28" class="btn-box" />
+  <rect x="451" y="90" width="11" height="10" rx="1.5" fill="none" stroke="#64748B" stroke-width="1.6" />
+  <text x="468" y="99" class="btn-txt">モニター消去</text>
+
+  <!-- ボタン: ログ出力 -->
+  <rect x="552" y="81" width="90" height="28" class="btn-box" />
+  <path d="M 564 89 L 564 98 M 560 95 L 564 99 L 568 95 M 559 101 L 569 101" stroke="#0284C7" stroke-width="1.7" fill="none" stroke-linecap="round" />
+  <text x="575" y="99" class="btn-txt">ログ出力</text>
+
+  <!-- ② 上段グループボックス: 仮想 COM ペア・ブリッジ一覧 -->
+  <rect x="34" y="126" width="912" height="202" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+  <rect x="46" y="117" width="176" height="18" fill="#F3F4F6" />
+  <text x="52" y="130" class="ui" font-size="12.5" font-weight="700" fill="#1E293B">仮想 COM ペア・ブリッジ一覧</text>
+
+  <!-- DgvPairs テーブル領域 -->
+  <rect x="44" y="140" width="892" height="178" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1" />
+
+  <!-- DgvPairs 列ヘッダー (ID:44, 有効:54, ポートA:88, 中継モード:112, ポートB/接続先:152, オプション:184, 状態:84, 転送量:174 = 計892) -->
+  <g transform="translate(44, 140)">
+    <rect x="0" y="0" width="44" height="28" class="grid-hdr" />
+    <rect x="44" y="0" width="54" height="28" class="grid-hdr" />
+    <rect x="98" y="0" width="88" height="28" class="grid-hdr" />
+    <rect x="186" y="0" width="112" height="28" class="grid-hdr" />
+    <rect x="298" y="0" width="152" height="28" class="grid-hdr" />
+    <rect x="450" y="0" width="184" height="28" class="grid-hdr" />
+    <rect x="634" y="0" width="84" height="28" class="grid-hdr" />
+    <rect x="718" y="0" width="174" height="28" class="grid-hdr" />
+
+    <text x="14" y="18" class="grid-hdr-txt">ID</text>
+    <text x="58" y="18" class="grid-hdr-txt">有効</text>
+    <text x="114" y="18" class="grid-hdr-txt">ポート A</text>
+    <text x="204" y="18" class="grid-hdr-txt">中継モード</text>
+    <text x="312" y="18" class="grid-hdr-txt">ポート B / 接続先</text>
+    <text x="464" y="18" class="grid-hdr-txt">オプション</text>
+    <text x="660" y="18" class="grid-hdr-txt">状態</text>
+    <text x="730" y="18" class="grid-hdr-txt">A-&gt;B / B-&gt;A 転送量</text>
+
+    <!-- 行 0: 選択行 (VirtualPort) -->
+    <g transform="translate(0, 28)">
+      <rect x="0" y="0" width="892" height="30" fill="#DBEAFE" stroke="#BFDBFE" stroke-width="1" />
+      <text x="16" y="19" class="mono" font-size="12" fill="#1E3A8A" font-weight="700">0</text>
+      <text x="60" y="19" class="mono" font-size="12" fill="#15803D" font-weight="700">ON</text>
+      <text x="114" y="19" class="mono" font-size="12" fill="#0F172A" font-weight="700">COM10</text>
+      <text x="198" y="19" class="mono" font-size="12" fill="#1E40AF">VirtualPort</text>
+      <text x="312" y="19" class="mono" font-size="12" fill="#0F172A" font-weight="700">COM11</text>
+      <text x="460" y="19" class="mono" font-size="11.5" fill="#334155">EmuBR=OFF, DTR/RTS=Cross</text>
+      <rect x="646" y="5" width="60" height="20" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="1" />
+      <text x="658" y="19" class="ui" font-size="11" font-weight="700" fill="#15803D">通信中</text>
+      <text x="734" y="19" class="mono" font-size="12" fill="#0F172A">1,248 / 2,096</text>
+    </g>
+
+    <!-- 行 1: TcpServer -->
+    <g transform="translate(0, 58)">
+      <rect x="0" y="0" width="892" height="30" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="16" y="19" class="mono" font-size="12" fill="#334155">1</text>
+      <text x="60" y="19" class="mono" font-size="12" fill="#15803D" font-weight="700">ON</text>
+      <text x="114" y="19" class="mono" font-size="12" fill="#0F172A" font-weight="700">COM12</text>
+      <text x="198" y="19" class="mono" font-size="12" fill="#0369A1">TcpServer</text>
+      <text x="312" y="19" class="mono" font-size="12" fill="#0F172A">127.0.0.1:7000</text>
+      <text x="460" y="19" class="mono" font-size="11.5" fill="#475569">EmuBR=OFF, DTR/RTS=Cross</text>
+      <rect x="646" y="5" width="60" height="20" rx="10" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1" />
+      <text x="658" y="19" class="ui" font-size="11" font-weight="700" fill="#0369A1">待受中</text>
+      <text x="734" y="19" class="mono" font-size="12" fill="#64748B">0 / 0</text>
+    </g>
+
+    <!-- 行 2: TcpClient -->
+    <g transform="translate(0, 88)">
+      <rect x="0" y="0" width="892" height="30" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+      <text x="16" y="19" class="mono" font-size="12" fill="#334155">2</text>
+      <text x="60" y="19" class="mono" font-size="12" fill="#15803D" font-weight="700">ON</text>
+      <text x="114" y="19" class="mono" font-size="12" fill="#0F172A" font-weight="700">COM13</text>
+      <text x="198" y="19" class="mono" font-size="12" fill="#6D28D9">TcpClient</text>
+      <text x="312" y="19" class="mono" font-size="12" fill="#0F172A">192.168.1.50:4001</text>
+      <text x="460" y="19" class="mono" font-size="11.5" fill="#475569">EmuBR=ON, DTR/RTS=Cross</text>
+      <rect x="646" y="5" width="60" height="20" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="1" />
+      <text x="658" y="19" class="ui" font-size="11" font-weight="700" fill="#15803D">通信中</text>
+      <text x="734" y="19" class="mono" font-size="12" fill="#0F172A">512 / 1,024</text>
+    </g>
+
+    <!-- 行 3: PhysicalSerial -->
+    <g transform="translate(0, 118)">
+      <rect x="0" y="0" width="892" height="30" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="16" y="19" class="mono" font-size="12" fill="#334155">3</text>
+      <text x="60" y="19" class="mono" font-size="12" fill="#15803D" font-weight="700">ON</text>
+      <text x="114" y="19" class="mono" font-size="12" fill="#0F172A" font-weight="700">COM14</text>
+      <text x="198" y="19" class="mono" font-size="12" fill="#B45309">PhysicalSerial</text>
+      <text x="312" y="19" class="mono" font-size="12" fill="#0F172A">COM3:115200</text>
+      <text x="460" y="19" class="mono" font-size="11.5" fill="#475569">EmuBR=OFF, DTR/RTS=Thru</text>
+      <rect x="646" y="5" width="60" height="20" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="1" />
+      <text x="658" y="19" class="ui" font-size="11" font-weight="700" fill="#15803D">通信中</text>
+      <text x="734" y="19" class="mono" font-size="12" fill="#0F172A">348 / 412</text>
+    </g>
+
+    <!-- 列区切り縦線 -->
+    <g stroke="#E2E8F0" stroke-width="1">
+      <line x1="44" y1="28" x2="44" y2="178" />
+      <line x1="98" y1="28" x2="98" y2="178" />
+      <line x1="186" y1="28" x2="186" y2="178" />
+      <line x1="298" y1="28" x2="298" y2="178" />
+      <line x1="450" y1="28" x2="450" y2="178" />
+      <line x1="634" y1="28" x2="634" y2="178" />
+      <line x1="718" y1="28" x2="718" y2="178" />
+    </g>
+  </g>
+
+  <!-- ③ 上下分割スプリッターバー (SplMain) -->
+  <rect x="34" y="332" width="912" height="6" rx="3" fill="#E2E8F0" />
+  <circle cx="476" cy="335" r="1.8" fill="#64748B" />
+  <circle cx="490" cy="335" r="1.8" fill="#64748B" />
+  <circle cx="504" cy="335" r="1.8" fill="#64748B" />
+
+  <!-- ⑤ 下段グループボックス: リアルタイム通信モニター -->
+  <rect x="34" y="346" width="912" height="264" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+  <rect x="46" y="338" width="166" height="18" fill="#F3F4F6" />
+  <text x="52" y="351" class="ui" font-size="12.5" font-weight="700" fill="#1E293B">リアルタイム通信モニター</text>
+
+  <!-- ④ モニター表示オプションバー (FlpMonitorOptions) -->
+  <!-- チェックボックス: HEX 表示 (OFF) -->
+  <rect x="48" y="360" width="15" height="15" rx="2" fill="#FFFFFF" stroke="#64748B" stroke-width="1.4" />
+  <text x="69" y="372" class="ui" font-size="12" font-weight="600" fill="#1E293B">HEX 表示</text>
+
+  <!-- チェックボックス: 自動スクロール (ON) -->
+  <rect x="148" y="360" width="15" height="15" rx="2" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.4" />
+  <path d="M 151 367.5 L 154.5 371 L 160.5 363.5" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="169" y="372" class="ui" font-size="12" font-weight="600" fill="#1E293B">自動スクロール</text>
+
+  <!-- DgvTraffic テーブル領域 -->
+  <rect x="44" y="382" width="892" height="218" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1" />
+
+  <!-- DgvTraffic 列ヘッダー (時刻:115, 経路:175, バイト数:82, データ内容:520 = 計892) -->
+  <g transform="translate(44, 382)">
+    <rect x="0" y="0" width="115" height="28" class="grid-hdr" />
+    <rect x="115" y="0" width="175" height="28" class="grid-hdr" />
+    <rect x="290" y="0" width="82" height="28" class="grid-hdr" />
+    <rect x="372" y="0" width="520" height="28" class="grid-hdr" />
+
+    <text x="14" y="18" class="grid-hdr-txt">時刻</text>
+    <text x="129" y="18" class="grid-hdr-txt">経路</text>
+    <text x="304" y="18" class="grid-hdr-txt">バイト数</text>
+    <text x="386" y="18" class="grid-hdr-txt">データ内容</text>
+
+    <!-- パケット行 1 -->
+    <g transform="translate(0, 28)">
+      <rect x="0" y="0" width="892" height="28" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="18" class="mono" font-size="12" fill="#475569">14:25:08.142</text>
+      <text x="126" y="18" class="mono" font-size="12" fill="#1D4ED8" font-weight="700">COM10 -&gt; COM11</text>
+      <text x="322" y="18" class="mono" font-size="12" fill="#0F172A">7</text>
+      <text x="386" y="18" class="mono" font-size="12" fill="#0F172A">*IDN?\r\n</text>
+    </g>
+
+    <!-- パケット行 2 -->
+    <g transform="translate(0, 56)">
+      <rect x="0" y="0" width="892" height="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="18" class="mono" font-size="12" fill="#475569">14:25:08.165</text>
+      <text x="126" y="18" class="mono" font-size="12" fill="#047857" font-weight="700">COM11 -&gt; COM10</text>
+      <text x="314" y="18" class="mono" font-size="12" fill="#0F172A">22</text>
+      <text x="386" y="18" class="mono" font-size="12" fill="#0F172A">MONACA,DMM-01,V1.00\r\n</text>
+    </g>
+
+    <!-- パケット行 3 -->
+    <g transform="translate(0, 84)">
+      <rect x="0" y="0" width="892" height="28" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="18" class="mono" font-size="12" fill="#475569">14:25:08.410</text>
+      <text x="126" y="18" class="mono" font-size="12" fill="#1D4ED8" font-weight="700">COM10 -&gt; COM11</text>
+      <text x="314" y="18" class="mono" font-size="12" fill="#0F172A">14</text>
+      <text x="386" y="18" class="mono" font-size="12" fill="#0F172A">MEAS:VOLT:DC?\r\n</text>
+    </g>
+
+    <!-- パケット行 4 -->
+    <g transform="translate(0, 112)">
+      <rect x="0" y="0" width="892" height="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="18" class="mono" font-size="12" fill="#475569">14:25:08.448</text>
+      <text x="126" y="18" class="mono" font-size="12" fill="#047857" font-weight="700">COM11 -&gt; COM10</text>
+      <text x="314" y="18" class="mono" font-size="12" fill="#0F172A">13</text>
+      <text x="386" y="18" class="mono" font-size="12" fill="#0F172A">+5.00124E+00\r\n</text>
+    </g>
+
+    <!-- パケット行 5 (物理シリアルスニファ・制御コード可視化例) -->
+    <g transform="translate(0, 140)">
+      <rect x="0" y="0" width="892" height="28" fill="#DBEAFE" stroke="#BFDBFE" stroke-width="1" />
+      <text x="12" y="18" class="mono" font-size="12" fill="#1E3A8A">14:25:09.012</text>
+      <text x="126" y="18" class="mono" font-size="12" fill="#B45309" font-weight="700">COM14 -&gt; COM3</text>
+      <text x="314" y="18" class="mono" font-size="12" fill="#1E3A8A">15</text>
+      <text x="386" y="18" class="mono" font-size="12" fill="#1E3A8A" font-weight="700">&lt;05&gt;00FFWR0D010001\r\n</text>
+    </g>
+
+    <!-- 列区切り縦線 -->
+    <g stroke="#E2E8F0" stroke-width="1">
+      <line x1="115" y1="28" x2="115" y2="218" />
+      <line x1="290" y1="28" x2="290" y2="218" />
+      <line x1="372" y1="28" x2="372" y2="218" />
+    </g>
+  </g>
+
+  <!-- ⑥ 下部ステータスバー (StsMain) -->
+  <path d="M 25 616 L 955 616 L 955 636 Q 955 643 948 643 L 32 643 Q 25 643 25 636 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+  <circle cx="40" cy="630" r="5" fill="#16A34A" />
+  <text x="52" y="634" class="ui" font-size="11.5" font-weight="600" fill="#1E293B">中継稼働中 (4 ペア有効) | 公開ポート: COM10, COM11, COM12, COM13, COM14</text>
+
+  <!-- 番号コールアウトバッジ & 凡例ラベル -->
+  <!-- ① ツールバー -->
+  <line x1="665" y1="95" x2="700" y2="95" stroke="#E8590C" stroke-width="1.6" stroke-dasharray="3,2" />
+  <circle cx="660" cy="95" r="11" class="badge-circle" />
+  <text x="660" y="95" class="badge-num">1</text>
+  <rect x="702" y="82" width="242" height="26" class="callout-box" />
+  <text x="712" y="99" class="callout-txt">① ツールバー（開始/停止・ペア管理・保存）</text>
+
+  <!-- ② ペア一覧 -->
+  <circle cx="242" cy="126" r="11" class="badge-circle" />
+  <text x="242" y="126" class="badge-num">2</text>
+  <rect x="260" y="113" width="320" height="24" class="callout-box" />
+  <text x="270" y="129" class="callout-txt">② 仮想 COM ペア・ブリッジ一覧（ダブルクリックで編集）</text>
+
+  <!-- ③ スプリッター -->
+  <circle cx="534" cy="335" r="11" class="badge-circle" />
+  <text x="534" y="335" class="badge-num">3</text>
+  <rect x="552" y="323" width="218" height="24" class="callout-box" />
+  <text x="562" y="339" class="callout-txt">③ 上下分割バー（ドラッグで高さ調整）</text>
+
+  <!-- ④ 表示切替オプション -->
+  <circle cx="272" cy="367" r="11" class="badge-circle" />
+  <text x="272" y="367" class="badge-num">4</text>
+  <rect x="290" y="355" width="286" height="24" class="callout-box" />
+  <text x="300" y="371" class="callout-txt">④ モニター表示切替（HEX / 自動スクロール）</text>
+
+  <!-- ⑤ リアルタイム通信モニター -->
+  <circle cx="604" cy="367" r="11" class="badge-circle" />
+  <text x="604" y="367" class="badge-num">5</text>
+  <rect x="622" y="355" width="312" height="24" class="callout-box" />
+  <text x="632" y="371" class="callout-txt">⑤ リアルタイム通信モニター（最大 2,000 行保持）</text>
+
+  <!-- ⑥ ステータスバー -->
+  <line x1="485" y1="644" x2="485" y2="668" stroke="#E8590C" stroke-width="1.6" stroke-dasharray="3,2" />
+  <circle cx="485" cy="670" r="11" class="badge-circle" />
+  <text x="485" y="670" class="badge-num">6</text>
+  <rect x="504" y="658" width="356" height="24" class="callout-box" />
+  <text x="514" y="674" class="callout-txt">⑥ ステータスバー（稼働ペア数・公開ポート一覧表示）</text>
+
+  <!-- 上部キャプション -->
+  <text x="26" y="26" class="ui" font-size="14" font-weight="700" fill="#0F172A">図 1 : c2c メイン画面の構成イメージ（4 種の中継モード稼働・ASCII 電文モニター表示例）</text>
+</svg>

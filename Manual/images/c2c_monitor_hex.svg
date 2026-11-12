@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440">
+  <defs>
+    <filter id="cardShadow" x="-2%" y="-3%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.14" />
+    </filter>
+    <style>
+      .ui { font-family: 'Yu Gothic UI', 'Meiryo UI', 'Segoe UI', sans-serif; }
+      .mono { font-family: 'Consolas', 'BIZ UDGothic', 'MS Gothic', monospace; }
+      .grid-hdr { fill: #F1F5F9; stroke: #CBD5E1; stroke-width: 1; }
+      .grid-hdr-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 11.5px; font-weight: 700; fill: #1E293B; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="440" fill="#F8FAFC" rx="10" />
+  <text x="24" y="28" class="ui" font-size="14" font-weight="700" fill="#0F172A">図 3 : 「HEX 表示」ON 時のバイナリ電文モニター画面と CSV ログ出力イメージ</text>
+
+  <!-- 上段: HEX 表示 ON のモニターペイン -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="44" width="912" height="226" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.4" />
+  </g>
+  <rect x="38" y="36" width="166" height="18" fill="#F8FAFC" />
+  <text x="44" y="49" class="ui" font-size="12.5" font-weight="700" fill="#1E293B">リアルタイム通信モニター</text>
+
+  <!-- HEX 表示 チェック ON ハイライト -->
+  <rect x="36" y="56" width="118" height="26" rx="5" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.4" />
+  <rect x="44" y="61" width="16" height="16" rx="2.5" fill="#D97706" stroke="#B45309" stroke-width="1.2" />
+  <path d="M 47.5 69 L 51 72.5 L 57 65" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="67" y="74" class="ui" font-size="12" font-weight="700" fill="#92400E">HEX 表示</text>
+
+  <!-- 自動スクロール ON -->
+  <rect x="172" y="61" width="16" height="16" rx="2.5" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.2" />
+  <path d="M 175.5 69 L 179 72.5 L 185 65" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="195" y="74" class="ui" font-size="12" font-weight="600" fill="#1E293B">自動スクロール</text>
+
+  <!-- 補足吹き出し -->
+  <rect x="310" y="56" width="612" height="26" rx="5" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" />
+  <text x="322" y="73" class="ui" font-size="11.5" font-weight="600" fill="#1E40AF">チェック切り替えで、受信済み履歴もリアルタイムに 16 進数バイト列（XX 空白区切り）へ一括再描画されます</text>
+
+  <!-- モニターテーブル (HEX 表示) -->
+  <g transform="translate(36, 90)">
+    <rect x="0" y="0" width="888" height="166" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1" />
+    <rect x="0" y="0" width="115" height="28" class="grid-hdr" />
+    <rect x="115" y="0" width="165" height="28" class="grid-hdr" />
+    <rect x="280" y="0" width="82" height="28" class="grid-hdr" />
+    <rect x="362" y="0" width="526" height="28" class="grid-hdr" />
+
+    <text x="14" y="18" class="grid-hdr-txt">時刻</text>
+    <text x="129" y="18" class="grid-hdr-txt">経路</text>
+    <text x="294" y="18" class="grid-hdr-txt">バイト数</text>
+    <text x="376" y="18" class="grid-hdr-txt">データ内容（HEX 表示 ON 時）</text>
+
+    <!-- Row 1: Modbus RTU Read Holding Registers Request -->
+    <g transform="translate(0, 28)">
+      <rect x="0" y="0" width="888" height="34" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="21" class="mono" font-size="12" fill="#475569">14:30:12.008</text>
+      <text x="126" y="21" class="mono" font-size="12" fill="#1D4ED8" font-weight="700">COM10 -&gt; COM11</text>
+      <text x="314" y="21" class="mono" font-size="12" fill="#0F172A">8</text>
+      <text x="376" y="21" class="mono" font-size="12.5" font-weight="700" fill="#0F172A">01 03 00 00 00 02 C4 0B</text>
+      <text x="642" y="21" class="ui" font-size="11" fill="#64748B">← Modbus RTU 保持レジスタ読出要求 (CRC16付)</text>
+    </g>
+
+    <!-- Row 2: Modbus RTU Response -->
+    <g transform="translate(0, 62)">
+      <rect x="0" y="0" width="888" height="34" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="21" class="mono" font-size="12" fill="#475569">14:30:12.024</text>
+      <text x="126" y="21" class="mono" font-size="12" fill="#047857" font-weight="700">COM11 -&gt; COM10</text>
+      <text x="314" y="21" class="mono" font-size="12" fill="#0F172A">9</text>
+      <text x="376" y="21" class="mono" font-size="12.5" font-weight="700" fill="#047857">01 03 04 03 E8 07 D0 7A 41</text>
+      <text x="642" y="21" class="ui" font-size="11" fill="#64748B">← Modbus RTU 正常応答 (1000, 2000)</text>
+    </g>
+
+    <!-- Row 3: MELSEC 形式5 バイナリ電文 -->
+    <g transform="translate(0, 96)">
+      <rect x="0" y="0" width="888" height="34" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <text x="12" y="21" class="mono" font-size="12" fill="#475569">14:30:12.510</text>
+      <text x="126" y="21" class="mono" font-size="12" fill="#1D4ED8" font-weight="700">COM10 -&gt; COM11</text>
+      <text x="310" y="21" class="mono" font-size="12" fill="#0F172A">12</text>
+      <text x="376" y="21" class="mono" font-size="12.5" font-weight="700" fill="#0F172A">10 02 00 FF 57 52 30 44 30 30 10 03</text>
+      <text x="668" y="21" class="ui" font-size="11" fill="#64748B">← MELSEC DLE/STX バイナリフレーム</text>
+    </g>
+
+    <!-- Row 4 -->
+    <g transform="translate(0, 130)">
+      <rect x="0" y="0" width="888" height="36" fill="#DBEAFE" stroke="#BFDBFE" stroke-width="1" />
+      <text x="12" y="22" class="mono" font-size="12" fill="#1E3A8A">14:30:12.529</text>
+      <text x="126" y="22" class="mono" font-size="12" fill="#047857" font-weight="700">COM11 -&gt; COM10</text>
+      <text x="314" y="22" class="mono" font-size="12" fill="#1E3A8A">6</text>
+      <text x="376" y="22" class="mono" font-size="12.5" font-weight="700" fill="#1E3A8A">10 06 00 FF 10 03</text>
+      <text x="642" y="22" class="ui" font-size="11" fill="#1E3A8A">← MELSEC DLE/ACK 正常完了応答</text>
+    </g>
+
+    <g stroke="#E2E8F0" stroke-width="1">
+      <line x1="115" y1="28" x2="115" y2="166" />
+      <line x1="280" y1="28" x2="280" y2="166" />
+      <line x1="362" y1="28" x2="362" y2="166" />
+    </g>
+  </g>
+
+  <!-- 矢印: ログ出力 -->
+  <path d="M 480 272 L 480 298" stroke="#0284C7" stroke-width="2.2" />
+  <polygon points="474,296 480,306 486,296" fill="#0284C7" />
+  <rect x="334" y="276" width="292" height="22" rx="11" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1" />
+  <text x="480" y="291" class="ui" font-size="11.5" font-weight="700" fill="#0369A1" text-anchor="middle">ツールバー「ログ出力」クリック（HEX と ASCII の両列を同時保存）</text>
+
+  <!-- 下段: エクスポート CSV ファイル構造プレビュー -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="310" width="912" height="114" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1.2" />
+  </g>
+  <text x="40" y="332" class="ui" font-size="12" font-weight="700" fill="#38BDF8">保存ファイル例 : c2c_traffic_20261112_143015.csv （UTF-8 BOM 付き / Excel でそのまま文字化けなく開けます）</text>
+  <line x1="36" y1="340" x2="924" y2="340" stroke="#334155" stroke-width="1" />
+  <text x="40" y="360" class="mono" font-size="12" font-weight="700" fill="#FDE047">Timestamp,Route,Bytes,Hex,Ascii</text>
+  <text x="40" y="381" class="mono" font-size="11.5" fill="#E2E8F0">2026-11-12 14:30:12.008,"COM10 -&gt; COM11",8,"01 03 00 00 00 02 C4 0B","&lt;01&gt;&lt;03&gt;&lt;00&gt;&lt;00&gt;&lt;00&gt;&lt;02&gt;&lt;C4&gt;&lt;0B&gt;"</text>
+  <text x="40" y="402" class="mono" font-size="11.5" fill="#86EFAC">2026-11-12 14:30:12.024,"COM11 -&gt; COM10",9,"01 03 04 03 E8 07 D0 7A 41","&lt;01&gt;&lt;03&gt;&lt;04&gt;&lt;03&gt;&lt;E8&gt;&lt;07&gt;&lt;D0&gt;zA"</text>
+</svg>
