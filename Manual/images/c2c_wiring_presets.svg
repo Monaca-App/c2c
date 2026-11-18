@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="330" viewBox="0 0 980 330">
+  <defs>
+    <style>
+      .ui { font-family: 'Yu Gothic UI', 'Meiryo UI', 'Segoe UI', sans-serif; }
+      .mono { font-family: 'Consolas', 'Segoe UI', monospace; }
+      .card { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.3; rx: 7; }
+      .canvas { fill: #FEFCE8; stroke: #E5E7EB; stroke-width: 1; rx: 4; }
+      .canvas-eth { fill: #F1F5F9; stroke: #CBD5E1; stroke-width: 1; rx: 4; }
+      .conn { fill: #FFFFFF; stroke: #111827; stroke-width: 1.5; rx: 8; }
+      .pin { fill: #BDBDBD; stroke: #1E293B; stroke-width: 1.3; }
+      .pin-off { fill: #E2E8F0; stroke: #94A3B8; stroke-width: 1.1; }
+      .lbl { font-family: 'Segoe UI', 'Consolas', sans-serif; font-size: 10.5px; font-weight: 700; fill: #111827; dominant-baseline: central; }
+      .lbl-off { font-family: 'Segoe UI', 'Consolas', sans-serif; font-size: 10.5px; font-weight: 600; fill: #94A3B8; dominant-baseline: central; }
+      .wire { fill: none; stroke: #C86D2D; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+      .wire-eth { fill: none; stroke: #0284C7; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="330" fill="#F8FAFC" rx="10" />
+  <text x="20" y="25" class="ui" font-size="13.5" font-weight="700" fill="#0F172A">図 2 : 中央「結線状況指定エリア」の結線プリセット・ピン個別クリック結線・Ethernet 自動切替イメージ</text>
+
+  <!-- ==================== カード① 折り返しクロス (既定) ==================== -->
+  <g transform="translate(18, 40)">
+    <rect x="0" y="0" width="228" height="274" class="card" />
+    <rect x="1" y="1" width="226" height="38" rx="6" fill="#FFFBEB" />
+    <text x="114" y="17" class="ui" font-size="11.5" font-weight="700" fill="#92400E" text-anchor="middle">① 折り返しクロス (既定)</text>
+    <text x="114" y="32" class="mono" font-size="10" fill="#B45309" text-anchor="middle">--wiring loopback</text>
+
+    <rect x="12" y="46" width="204" height="176" class="canvas" />
+    <rect x="52" y="54" width="24" height="160" class="conn" />
+    <rect x="152" y="54" width="24" height="160" class="conn" />
+
+    <polyline points="64,66 96,66 132,85 164,85" class="wire" />
+    <polyline points="64,85 96,85 132,66 164,66" class="wire" />
+    <polyline points="64,104 94,104 94,123 64,123" class="wire" />
+    <polyline points="164,104 134,104 134,123 164,123" class="wire" />
+    <polyline points="64,142 94,142 94,199 64,199" class="wire" />
+    <polyline points="164,142 134,142 134,199 164,199" class="wire" />
+    <line x1="64" y1="161" x2="164" y2="161" class="wire" />
+
+    <text x="46" y="66" class="lbl" text-anchor="end">TXD</text><circle cx="64" cy="66" r="4" class="pin" /><circle cx="164" cy="66" r="4" class="pin" /><text x="182" y="66" class="lbl">TXD</text>
+    <text x="46" y="85" class="lbl" text-anchor="end">RXD</text><circle cx="64" cy="85" r="4" class="pin" /><circle cx="164" cy="85" r="4" class="pin" /><text x="182" y="85" class="lbl">RXD</text>
+    <text x="46" y="104" class="lbl" text-anchor="end">RTS</text><circle cx="64" cy="104" r="4" class="pin" /><circle cx="164" cy="104" r="4" class="pin" /><text x="182" y="104" class="lbl">RTS</text>
+    <text x="46" y="123" class="lbl" text-anchor="end">CTS</text><circle cx="64" cy="123" r="4" class="pin" /><circle cx="164" cy="123" r="4" class="pin" /><text x="182" y="123" class="lbl">CTS</text>
+    <text x="46" y="142" class="lbl" text-anchor="end">DSR</text><circle cx="64" cy="142" r="4" class="pin" /><circle cx="164" cy="142" r="4" class="pin" /><text x="182" y="142" class="lbl">DSR</text>
+    <text x="46" y="161" class="lbl" text-anchor="end">S G</text><circle cx="64" cy="161" r="4" class="pin" /><circle cx="164" cy="161" r="4" class="pin" /><text x="182" y="161" class="lbl">S G</text>
+    <text x="46" y="180" class="lbl" text-anchor="end">DCD</text><circle cx="64" cy="180" r="4" class="pin" /><circle cx="164" cy="180" r="4" class="pin" /><text x="182" y="180" class="lbl">DCD</text>
+    <text x="46" y="199" class="lbl" text-anchor="end">DTR</text><circle cx="64" cy="199" r="4" class="pin" /><circle cx="164" cy="199" r="4" class="pin" /><text x="182" y="199" class="lbl">DTR</text>
+
+    <text x="14" y="241" class="ui" font-size="10.5" fill="#334155">・RTS→CTS / DTR→DSR 自局折り返し</text>
+    <text x="14" y="258" class="ui" font-size="10.5" fill="#334155">・対向未接続時も送信詰まりなく即動作</text>
+  </g>
+
+  <!-- ==================== カード② フルハンドシェイク交差 ==================== -->
+  <g transform="translate(256, 40)">
+    <rect x="0" y="0" width="228" height="274" class="card" />
+    <rect x="1" y="1" width="226" height="38" rx="6" fill="#EFF6FF" />
+    <text x="114" y="17" class="ui" font-size="11.5" font-weight="700" fill="#1E3A8A" text-anchor="middle">② フルハンドシェイク交差</text>
+    <text x="114" y="32" class="mono" font-size="10" fill="#1D4ED8" text-anchor="middle">--wiring full</text>
+
+    <rect x="12" y="46" width="204" height="176" class="canvas" />
+    <rect x="52" y="54" width="24" height="160" class="conn" />
+    <rect x="152" y="54" width="24" height="160" class="conn" />
+
+    <polyline points="64,66 96,66 132,85 164,85" class="wire" />
+    <polyline points="64,85 96,85 132,66 164,66" class="wire" />
+    <polyline points="64,104 96,104 132,123 164,123" class="wire" />
+    <polyline points="64,123 96,123 132,104 164,104" class="wire" />
+    <polyline points="64,199 98,199 138,142 164,142" class="wire" />
+    <polyline points="138,142 138,180 164,180" class="wire" />
+    <polyline points="164,199 130,199 90,142 64,142" class="wire" />
+    <polyline points="90,142 90,180 64,180" class="wire" />
+    <line x1="64" y1="161" x2="164" y2="161" class="wire" />
+
+    <text x="46" y="66" class="lbl" text-anchor="end">TXD</text><circle cx="64" cy="66" r="4" class="pin" /><circle cx="164" cy="66" r="4" class="pin" /><text x="182" y="66" class="lbl">TXD</text>
+    <text x="46" y="85" class="lbl" text-anchor="end">RXD</text><circle cx="64" cy="85" r="4" class="pin" /><circle cx="164" cy="85" r="4" class="pin" /><text x="182" y="85" class="lbl">RXD</text>
+    <text x="46" y="104" class="lbl" text-anchor="end">RTS</text><circle cx="64" cy="104" r="4" class="pin" /><circle cx="164" cy="104" r="4" class="pin" /><text x="182" y="104" class="lbl">RTS</text>
+    <text x="46" y="123" class="lbl" text-anchor="end">CTS</text><circle cx="64" cy="123" r="4" class="pin" /><circle cx="164" cy="123" r="4" class="pin" /><text x="182" y="123" class="lbl">CTS</text>
+    <text x="46" y="142" class="lbl" text-anchor="end">DSR</text><circle cx="64" cy="142" r="4" class="pin" /><circle cx="164" cy="142" r="4" class="pin" /><text x="182" y="142" class="lbl">DSR</text>
+    <text x="46" y="161" class="lbl" text-anchor="end">S G</text><circle cx="64" cy="161" r="4" class="pin" /><circle cx="164" cy="161" r="4" class="pin" /><text x="182" y="161" class="lbl">S G</text>
+    <text x="46" y="180" class="lbl" text-anchor="end">DCD</text><circle cx="64" cy="180" r="4" class="pin" /><circle cx="164" cy="180" r="4" class="pin" /><text x="182" y="180" class="lbl">DCD</text>
+    <text x="46" y="199" class="lbl" text-anchor="end">DTR</text><circle cx="64" cy="199" r="4" class="pin" /><circle cx="164" cy="199" r="4" class="pin" /><text x="182" y="199" class="lbl">DTR</text>
+
+    <text x="14" y="241" class="ui" font-size="10.5" fill="#334155">・RTS⇔CTS、DTR⇔DSR＋DCD 対向交差</text>
+    <text x="14" y="258" class="ui" font-size="10.5" fill="#334155">・実機同等のハードウェアフロー制御試験</text>
+  </g>
+
+  <!-- ==================== カード③ 3線最小 / カスタム個別結線 ==================== -->
+  <g transform="translate(494, 40)">
+    <rect x="0" y="0" width="228" height="274" class="card" />
+    <rect x="1" y="1" width="226" height="38" rx="6" fill="#F0FDF4" />
+    <text x="114" y="17" class="ui" font-size="11.5" font-weight="700" fill="#166534" text-anchor="middle">③ 3線式最小 / ピン個別結線</text>
+    <text x="114" y="32" class="mono" font-size="10" fill="#15803D" text-anchor="middle">--wiring 3wire / custom:...</text>
+
+    <rect x="12" y="46" width="204" height="176" class="canvas" />
+    <rect x="52" y="54" width="24" height="160" class="conn" />
+    <rect x="152" y="54" width="24" height="160" class="conn" />
+
+    <polyline points="64,66 96,66 132,85 164,85" class="wire" />
+    <polyline points="64,85 96,85 132,66 164,66" class="wire" />
+    <line x1="64" y1="161" x2="164" y2="161" class="wire" />
+
+    <circle cx="64" cy="104" r="7.5" fill="none" stroke="#DC2626" stroke-width="1.6" stroke-dasharray="2,2" />
+
+    <text x="46" y="66" class="lbl" text-anchor="end">TXD</text><circle cx="64" cy="66" r="4" class="pin" /><circle cx="164" cy="66" r="4" class="pin" /><text x="182" y="66" class="lbl">TXD</text>
+    <text x="46" y="85" class="lbl" text-anchor="end">RXD</text><circle cx="64" cy="85" r="4" class="pin" /><circle cx="164" cy="85" r="4" class="pin" /><text x="182" y="85" class="lbl">RXD</text>
+    <text x="46" y="104" class="lbl" text-anchor="end">RTS</text><circle cx="64" cy="104" r="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1.5" /><circle cx="164" cy="104" r="4" class="pin" /><text x="182" y="104" class="lbl">RTS</text>
+    <text x="46" y="123" class="lbl" text-anchor="end">CTS</text><circle cx="64" cy="123" r="4" class="pin" /><circle cx="164" cy="123" r="4" class="pin" /><text x="182" y="123" class="lbl">CTS</text>
+    <text x="46" y="142" class="lbl" text-anchor="end">DSR</text><circle cx="64" cy="142" r="4" class="pin" /><circle cx="164" cy="142" r="4" class="pin" /><text x="182" y="142" class="lbl">DSR</text>
+    <text x="46" y="161" class="lbl" text-anchor="end">S G</text><circle cx="64" cy="161" r="4" class="pin" /><circle cx="164" cy="161" r="4" class="pin" /><text x="182" y="161" class="lbl">S G</text>
+    <text x="46" y="180" class="lbl" text-anchor="end">DCD</text><circle cx="64" cy="180" r="4" class="pin" /><circle cx="164" cy="180" r="4" class="pin" /><text x="182" y="180" class="lbl">DCD</text>
+    <text x="46" y="199" class="lbl" text-anchor="end">DTR</text><circle cx="64" cy="199" r="4" class="pin" /><circle cx="164" cy="199" r="4" class="pin" /><text x="182" y="199" class="lbl">DTR</text>
+
+    <text x="14" y="241" class="ui" font-size="10.5" fill="#334155">・左クリック2点で結線／右クリックで解除</text>
+    <text x="14" y="258" class="ui" font-size="10.5" fill="#334155">・通信中の断線・CTS開放試験を無瞬断再現</text>
+  </g>
+
+  <!-- ==================== カード④ Ethernet選択時の自動切替 ==================== -->
+  <g transform="translate(732, 40)">
+    <rect x="0" y="0" width="230" height="274" class="card" />
+    <rect x="1" y="1" width="228" height="38" rx="6" fill="#E0F2FE" />
+    <text x="115" y="17" class="ui" font-size="11.5" font-weight="700" fill="#075985" text-anchor="middle">④ Ethernet 選択時 (自動切替)</text>
+    <text x="115" y="32" class="mono" font-size="10" fill="#0369A1" text-anchor="middle">TCP / UDP ストリーム中継</text>
+
+    <rect x="12" y="46" width="206" height="176" class="canvas-eth" />
+    <rect x="52" y="54" width="24" height="160" class="conn" />
+    <rect x="152" y="54" width="24" height="160" class="conn" />
+
+    <polyline points="64,66 96,66 132,85 164,85" class="wire-eth" />
+    <polyline points="64,85 96,85 132,66 164,66" class="wire-eth" />
+
+    <text x="46" y="66" class="lbl" text-anchor="end">TXD</text><circle cx="64" cy="66" r="4" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.4" /><circle cx="164" cy="66" r="4" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.4" /><text x="182" y="66" class="lbl">TXD</text>
+    <text x="46" y="85" class="lbl" text-anchor="end">RXD</text><circle cx="64" cy="85" r="4" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.4" /><circle cx="164" cy="85" r="4" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.4" /><text x="182" y="85" class="lbl">RXD</text>
+    <text x="46" y="104" class="lbl-off" text-anchor="end">RTS</text><circle cx="64" cy="104" r="4" class="pin-off" /><circle cx="164" cy="104" r="4" class="pin-off" /><text x="182" y="104" class="lbl-off">RTS</text>
+    <text x="46" y="123" class="lbl-off" text-anchor="end">CTS</text><circle cx="64" cy="123" r="4" class="pin-off" /><circle cx="164" cy="123" r="4" class="pin-off" /><text x="182" y="123" class="lbl-off">CTS</text>
+    <text x="46" y="142" class="lbl-off" text-anchor="end">DSR</text><circle cx="64" cy="142" r="4" class="pin-off" /><circle cx="164" cy="142" r="4" class="pin-off" /><text x="182" y="142" class="lbl-off">DSR</text>
+    <text x="46" y="161" class="lbl-off" text-anchor="end">S G</text><circle cx="64" cy="161" r="4" class="pin-off" /><circle cx="164" cy="161" r="4" class="pin-off" /><text x="182" y="161" class="lbl-off">S G</text>
+    <text x="46" y="180" class="lbl-off" text-anchor="end">DCD</text><circle cx="64" cy="180" r="4" class="pin-off" /><circle cx="164" cy="180" r="4" class="pin-off" /><text x="182" y="180" class="lbl-off">DCD</text>
+    <text x="46" y="199" class="lbl-off" text-anchor="end">DTR</text><circle cx="64" cy="199" r="4" class="pin-off" /><circle cx="164" cy="199" r="4" class="pin-off" /><text x="182" y="199" class="lbl-off">DTR</text>
+
+    <text x="14" y="241" class="ui" font-size="10.5" fill="#334155">・RS-232C制御ピンを自動で非活性化</text>
+    <text x="14" y="258" class="ui" font-size="10.5" fill="#334155">・双方向ストリーム/折り返し線を青表示</text>
+  </g>
+</svg>
+

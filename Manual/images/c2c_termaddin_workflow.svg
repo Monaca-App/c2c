@@ -7,49 +7,57 @@
     <style>
       .ui { font-family: 'Yu Gothic UI', 'Meiryo UI', 'Segoe UI', sans-serif; }
       .mono { font-family: 'Consolas', 'BIZ UDGothic', 'MS Gothic', monospace; }
-      .step-pill { fill: #1D4ED8; }
       .step-txt { font-family: 'Yu Gothic UI', 'Meiryo UI', sans-serif; font-size: 12px; font-weight: 700; fill: #FFFFFF; }
     </style>
   </defs>
 
   <rect x="0" y="0" width="980" height="390" fill="#F8FAFC" rx="10" />
-  <text x="24" y="28" class="ui" font-size="14" font-weight="700" fill="#0F172A">図 4 : TermAddIn（Excel）と c2c を組み合わせた実機なし折り返し通信テスト画面イメージ</text>
+  <text x="24" y="28" class="ui" font-size="14" font-weight="700" fill="#0F172A">図 4 : TermAddIn（Excel）と c2c 接続タブ（8ピン結線・専用ログ）を組み合わせた実機なし通信テスト画面イメージ</text>
 
-  <!-- ステップ 1 カード: c2c 仮想ペア公開 -->
+  <!-- ステップ 1 カード: c2c 接続タブ公開 -->
   <g filter="url(#boxShadow)">
     <rect x="20" y="48" width="286" height="318" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.5" />
   </g>
   <rect x="20" y="48" width="286" height="34" rx="8" fill="#1E40AF" />
   <rect x="20" y="68" width="286" height="14" fill="#1E40AF" />
-  <text x="34" y="70" class="step-txt">STEP 1 : c2c.exe を起動（ポート公開）</text>
+  <text x="34" y="70" class="step-txt">STEP 1 : c2c.exe 起動（接続タブ自動待受）</text>
 
-  <text x="34" y="104" class="ui" font-size="11.5" fill="#334155">起動と同時に既定ペアが「待受中」になります</text>
+  <text x="34" y="102" class="ui" font-size="11" fill="#334155">1接続＝1タブで Aポート・8ピン結線・Bポートを管理</text>
 
-  <!-- ミニ c2c グリッド -->
-  <rect x="34" y="116" width="258" height="84" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
-  <rect x="34" y="116" width="258" height="24" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
-  <text x="44" y="132" class="ui" font-size="11" font-weight="700" fill="#1E293B">ポート A</text>
-  <text x="116" y="132" class="ui" font-size="11" font-weight="700" fill="#1E293B">ポート B</text>
-  <text x="204" y="132" class="ui" font-size="11" font-weight="700" fill="#1E293B">状態</text>
+  <!-- ミニ c2c タブ & 上段3分割 -->
+  <path d="M 34 128 L 34 114 Q 34 110 38 110 L 188 110 Q 192 110 192 114 L 192 128 Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.2" />
+  <text x="42" y="123" class="ui" font-size="10.5" font-weight="700" fill="#1D4ED8">● 接続1: COM10 ⇔ COM11</text>
+  <rect x="198" y="111" width="66" height="16" rx="3" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" />
+  <text x="231" y="122" class="ui" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">＋ 接続追加</text>
 
-  <rect x="35" y="141" width="256" height="30" fill="#DBEAFE" />
-  <text x="44" y="160" class="mono" font-size="12.5" font-weight="700" fill="#1E3A8A">COM10</text>
-  <text x="98" y="160" class="mono" font-size="11" fill="#64748B">&lt;-&gt;</text>
-  <text x="122" y="160" class="mono" font-size="12.5" font-weight="700" fill="#1E3A8A">COM11</text>
-  <rect x="196" y="146" width="84" height="20" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="1" />
-  <text x="238" y="160" class="ui" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">待受中/通信中</text>
+  <rect x="34" y="128" width="258" height="82" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.1" />
+  <!-- 左:A / 中央:8ピン / 右:B -->
+  <rect x="40" y="135" width="72" height="68" rx="3" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1" />
+  <text x="76" y="151" class="ui" font-size="9.5" font-weight="700" fill="#1E3A8A" text-anchor="middle">Aポート選択</text>
+  <text x="76" y="172" class="mono" font-size="12" font-weight="700" fill="#1D4ED8" text-anchor="middle">COM10</text>
+  <text x="76" y="191" class="ui" font-size="9" fill="#0F766E" text-anchor="middle">仮想COM公開</text>
 
-  <text x="44" y="191" class="ui" font-size="10.5" fill="#64748B">※ ドライバ導入・管理者権限・再起動すべて不要</text>
+  <rect x="116" y="135" width="94" height="68" rx="3" fill="#FEFCE8" stroke="#FDE68A" stroke-width="1" />
+  <text x="163" y="149" class="ui" font-size="9" font-weight="700" fill="#92400E" text-anchor="middle">8ピン結線(既定)</text>
+  <polyline points="130,160 152,160 174,172 196,172" fill="none" stroke="#C86D2D" stroke-width="1.6" />
+  <polyline points="130,172 152,172 174,160 196,160" fill="none" stroke="#C86D2D" stroke-width="1.6" />
+  <polyline points="130,182 145,182 145,192 130,192" fill="none" stroke="#C86D2D" stroke-width="1.5" />
+  <polyline points="196,182 181,182 181,192 196,192" fill="none" stroke="#C86D2D" stroke-width="1.5" />
 
-  <!-- ミニモニター -->
-  <rect x="34" y="212" width="258" height="138" rx="4" fill="#0F172A" stroke="#334155" stroke-width="1" />
-  <text x="44" y="232" class="ui" font-size="11" font-weight="700" fill="#38BDF8">リアルタイム通信モニター</text>
-  <line x1="42" y1="239" x2="284" y2="239" stroke="#334155" stroke-width="1" />
-  <text x="44" y="258" class="mono" font-size="11" fill="#93C5FD">COM10-&gt;COM11 : *IDN?\r\n</text>
-  <text x="44" y="278" class="mono" font-size="11" fill="#86EFAC">COM11-&gt;COM10 : MONACA,OK\r\n</text>
-  <text x="44" y="298" class="mono" font-size="11" fill="#93C5FD">COM10-&gt;COM11 : MEAS:VOLT?\r\n</text>
-  <text x="44" y="318" class="mono" font-size="11" fill="#86EFAC">COM11-&gt;COM10 : +5.001\r\n</text>
-  <text x="44" y="340" class="ui" font-size="10.5" fill="#FDE047">★ 送受信の両方向を 1 画面で同時可視化</text>
+  <rect x="214" y="135" width="72" height="68" rx="3" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1" />
+  <text x="250" y="151" class="ui" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">Bポート選択</text>
+  <text x="250" y="172" class="mono" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">COM11</text>
+  <text x="250" y="191" class="ui" font-size="9" fill="#15803D" text-anchor="middle">仮想COM公開</text>
+
+  <!-- ミニ タブ専用モニター -->
+  <rect x="34" y="216" width="258" height="134" rx="4" fill="#0F172A" stroke="#334155" stroke-width="1" />
+  <text x="44" y="235" class="ui" font-size="10.5" font-weight="700" fill="#38BDF8">通信ログ（この接続専用）</text>
+  <line x1="42" y1="242" x2="284" y2="242" stroke="#334155" stroke-width="1" />
+  <text x="44" y="260" class="mono" font-size="11" fill="#93C5FD">COM10-&gt;COM11 : *IDN?\r\n</text>
+  <text x="44" y="280" class="mono" font-size="11" fill="#86EFAC">COM11-&gt;COM10 : MONACA,OK\r\n</text>
+  <text x="44" y="300" class="mono" font-size="11" fill="#93C5FD">COM10-&gt;COM11 : MEAS:VOLT?\r\n</text>
+  <text x="44" y="320" class="mono" font-size="11" fill="#86EFAC">COM11-&gt;COM10 : +5.001\r\n</text>
+  <text x="44" y="340" class="ui" font-size="10" fill="#FDE047">★ タブ単位で混信なく往復電文を可視化</text>
 
   <!-- 矢印 1 -> 2 -->
   <path d="M 308 175 L 340 175" stroke="#2563EB" stroke-width="2.5" />
@@ -65,7 +73,6 @@
 
   <text x="364" y="104" class="ui" font-size="11.5" fill="#334155">「プロパティ設定」のポート一覧に自動出現！</text>
 
-  <!-- ミニ プロパティ設定ダイアログ -->
   <rect x="364" y="116" width="264" height="202" rx="5" fill="#F3F4F6" stroke="#94A3B8" stroke-width="1.2" />
   <rect x="364" y="116" width="264" height="24" rx="5" fill="#334155" />
   <text x="374" y="132" class="ui" font-size="11" font-weight="700" fill="#FFFFFF">プロパティ設定（COM / Modbus / Melco）</text>
@@ -75,7 +82,6 @@
   <text x="458" y="164" class="mono" font-size="12" font-weight="700" fill="#1D4ED8">COM10</text>
   <path d="M 596 156 L 600 162 L 604 156" stroke="#1D4ED8" stroke-width="1.6" fill="none" />
 
-  <!-- ドロップダウン展開リスト -->
   <rect x="448" y="172" width="164" height="92" fill="#FFFFFF" stroke="#64748B" stroke-width="1.2" />
   <text x="458" y="190" class="mono" font-size="11.5" fill="#475569">COM1  (物理ポート)</text>
   <text x="458" y="210" class="mono" font-size="11.5" fill="#475569">COM3  (物理ポート)</text>
@@ -100,7 +106,6 @@
   <rect x="686" y="68" width="274" height="14" fill="#7C3AED" />
   <text x="700" y="70" class="step-txt">STEP 3 : シーケンス折り返し実行</text>
 
-  <!-- Excel シート側 (COM10) -->
   <rect x="700" y="96" width="246" height="110" rx="5" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2" />
   <text x="710" y="115" class="ui" font-size="11.5" font-weight="700" fill="#166534">Excel シーケンスシート（COM10 接続）</text>
   <rect x="710" y="124" width="226" height="26" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1" />
@@ -113,16 +118,14 @@
   <text x="790" y="171" class="mono" font-size="11" font-weight="700" fill="#166534">MONACA,OK</text>
   <text x="710" y="197" class="ui" font-size="10.5" fill="#475569">本番シートを変更せずそのままテスト実行！</text>
 
-  <!-- 双方向矢印 -->
   <path d="M 805 210 L 805 238 M 835 238 L 835 210" stroke="#7C3AED" stroke-width="2" />
   <polygon points="800,235 805,243 810,235" fill="#7C3AED" />
   <polygon points="830,213 835,205 840,213" fill="#7C3AED" />
   <text x="850" y="228" class="ui" font-size="10.5" font-weight="700" fill="#6D28D9">c2c 内部中継</text>
 
-  <!-- 対向 Term P2 / シミュレータ側 (COM11) -->
   <rect x="700" y="246" width="246" height="104" rx="5" fill="#FAF5FF" stroke="#D8B4FE" stroke-width="1.2" />
   <text x="710" y="266" class="ui" font-size="11.5" font-weight="700" fill="#5B21B6">対向側 : 別タスク Term (/P2) 等（COM11）</text>
-  <text x="710" y="288" class="ui" font-size="11" fill="#334155">・2 つ目の Term 画面で COM11 をオープン</text>
-  <text x="710" y="308" class="ui" font-size="11" fill="#334155">・手動応答または疑似デバイス応答マクロを実行</text>
-  <text x="710" y="328" class="ui" font-size="11" fill="#334155">・TCP ブリッジなら外部シミュレータとも直結！</text>
+  <text x="710" y="288" class="ui" font-size="11" fill="#334155">・2 つ目の Term 画面や仮想スレーブを接続</text>
+  <text x="710" y="308" class="ui" font-size="11" fill="#334155">・通信中も 8 ピン結線の切替・断線試験が可能</text>
+  <text x="710" y="328" class="ui" font-size="11" fill="#334155">・別タブ追加時も既存接続は瞬断せず維持！</text>
 </svg>
