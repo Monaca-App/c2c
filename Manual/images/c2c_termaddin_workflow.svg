@@ -75,7 +75,7 @@
 
   <rect x="364" y="116" width="264" height="202" rx="5" fill="#F3F4F6" stroke="#94A3B8" stroke-width="1.2" />
   <rect x="364" y="116" width="264" height="24" rx="5" fill="#334155" />
-  <text x="374" y="132" class="ui" font-size="11" font-weight="700" fill="#FFFFFF">プロパティ設定（COM / Modbus / Melco）</text>
+  <text x="372" y="132" class="ui" font-size="10" font-weight="700" fill="#FFFFFF">プロパティ設定（COM/Modbus/Melco/Omron/Keyence）</text>
 
   <text x="376" y="162" class="ui" font-size="11.5" font-weight="600" fill="#1E293B">ポート名:</text>
   <rect x="448" y="146" width="164" height="26" rx="3" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" />
